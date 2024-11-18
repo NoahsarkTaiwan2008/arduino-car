@@ -15,7 +15,6 @@ void setup()
 void loop()
 {
     unsigned int distance = sonar.ping_cm();
-<<<<<<< HEAD
     Serial.print("距離：");
     Serial.print(distance);
     Serial.println("cm");
@@ -29,14 +28,6 @@ void loop()
         delay(500);
 
         run(255);
-=======
-
-    if (distance <= 15) {
-        delay(1000);
-        stop();
-        back(180);
-        left(130);
->>>>>>> 3eff6225aa7d447a02b7d5df80e7d965e7957726
     } else {
         run(255);
     }
