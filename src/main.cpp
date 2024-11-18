@@ -21,38 +21,38 @@ void line_following(int IR_L, int IR_R) {
     }
 }
 
-void obstacle_avoidance() {
-        delay(1000);
-        stop();
+// void obstacle_avoidance() {
+//         delay(1000);
+//         stop();
 
-        left(180);
-        delay(500);
-        stop();
+//         left(180);
+//         delay(500);
+//         stop();
 
-        run(180);
-        delay(1000);
-        stop();
+//         run(180);
+//         delay(1000);
+//         stop();
 
-        right(180);
-        delay(500);
-        stop();
+//         right(180);
+//         delay(500);
+//         stop();
 
-        run(180);
-        delay(1000);
-        stop();
+//         run(180);
+//         delay(1000);
+//         stop();
 
-        right(180);
-        delay(500);
-        stop();
+//         right(180);
+//         delay(500);
+//         stop();
 
-        run(180);
-        delay(1000);
-        stop();
+//         run(180);
+//         delay(1000);
+//         stop();
 
-        left(180);
-        delay(500);
-        stop();
-}
+//         left(180);
+//         delay(500);
+//         stop();
+// }
 
 void setup() {
     pinMode(5, OUTPUT);
@@ -79,9 +79,17 @@ void loop() {
     Serial.println(IR_R);
     delay(1000);
 
-    if (distance <= 15) {
-        obstacle_avoidance();
+    if (distance > 0 && distance <= 15) {
+        // 停止並直接繞過障礙物
+        stop();
+        delay(500);
+
+        right(150); // 或 left(150)，根據需要轉向
+        delay(500);
+
+        run(255);
     } else {
+        // run(255);
         line_following(IR_L, IR_R);
     }
 }
