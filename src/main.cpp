@@ -63,6 +63,7 @@ void setup() {
     pinMode(A0, INPUT);
     pinMode(A1, INPUT);
     pinMode(A3, INPUT);
+    pinMode(A4, INPUT);
 
     Serial.begin(9600);
 }
