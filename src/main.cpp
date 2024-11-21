@@ -22,6 +22,7 @@ void line_following(int IR_L, int IR_R) {
         motor(0, 0, 0, 0);
         delay(2000);
         stop();
+        back(90);
     }
 }
 
@@ -41,8 +42,6 @@ void setup() {
 
 void loop() {
     unsigned int distance = sonar.ping_cm();
-    // int IR_L = digitalRead(A0);
-    // int IR_R = digitalRead(A1);
 
     int IR_L = digitalRead(A0);
     int IR_R = digitalRead(A1);
