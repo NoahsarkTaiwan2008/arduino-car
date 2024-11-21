@@ -18,16 +18,12 @@ void loop() {
 
     int IR_L = digitalRead(A0);
     int IR_R = digitalRead(A1);
-    int IR_L2 = digitalRead(A3);
 
     Serial.print("IR_L: ");
     Serial.println(IR_L);
 
     Serial.print("IR_R: ");
     Serial.println(IR_R);
-
-    Serial.print("IR_L2: ");
-    Serial.println(IR_L2);
 
     Serial.print("cm: ");
     Serial.println(distance);
