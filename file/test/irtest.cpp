@@ -23,17 +23,19 @@ void loop() {
     int IR_L2 = digitalRead(A3);
     int IR_R2 = digitalRead(A5);
 
-    Serial.print("IR_L: ");
-    Serial.println(IR_L);
+Serial.print("IR_L: ");
+Serial.print(IR_L == 1 ? "白" : "黑");
+Serial.print(" | IR_L2: ");
+Serial.print(IR_L2 == 1 ? "黑" : "白");
+Serial.print(" | IR_R2: ");
+Serial.print(IR_R2 == 1 ? "黑" : "白");
+Serial.print(" | IR_R: ");
+Serial.println(IR_R == 1 ? "白" : "黑");
 
-    Serial.print("IR_R: ");
-    Serial.println(IR_R);
+Serial.print("cm: ");
+Serial.println(distance);
 
-    Serial.print("IR_L2: ");
-    Serial.println(IR_L2);
-
-    Serial.print("IR_R2: ");
-    Serial.println(IR_R2);
+delay(500);
 
     Serial.print("cm: ");
     Serial.println(distance);

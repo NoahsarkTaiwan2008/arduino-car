@@ -9,5 +9,7 @@ void setup() {
 }
 
 void loop() {
-    motor(100, 0, 130, 0);
+    // digitalWrite(5, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(9, HIGH);
 }

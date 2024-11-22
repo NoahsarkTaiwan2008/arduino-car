@@ -8,20 +8,49 @@ const int MAX_DISTANCE = 200; // 最大測量距離（單位：厘米）
 NewPing sonar(trigPin, echoPin, MAX_DISTANCE);
 
 // L100:R130
-void line_following(int IR_L, int IR_R) {
+// void line_following(int IR_L, int IR_R) {
 
-    if (IR_L == 0 && IR_R == 0) {
-        motor(100, 0, 130, 0);
-    } else if (IR_L == 1 && IR_R == 0) {
-        motor(90, 0, 0, 0);
-        delay(300);
-    } else if (IR_L == 0 && IR_R == 1) {
-        motor(0, 0, 90, 0);
-        delay(300);
+//     if (IR_L == 0 && IR_R == 0) {
+//         // motor(100, 0, 130, 0);
+//         run(80);
+//     } else if (IR_L == 1 && IR_R == 0) {
+//         motor(90, 0, 0, 0);
+//         delay(300);
+//     } else if (IR_L == 0 && IR_R == 1) {
+//         motor(0, 0, 90, 0);
+//         delay(300);
+//     } else {
+//         motor(0, 0, 0, 0);
+//         delay(2000);
+//         stop();
+//         back(90);
+//     }
+// }
+
+void line_following(int IR_L2, int IR_R2, int IR_L, int IR_R) {
+    if (IR_L2 == 1 && IR_R2 == 1) {
+        // motor(100, 0, 130, 0);
+        digitalWrite(5, HIGH);
+        digitalWrite(9, HIGH);
+    // } else if (IR_L2 == 0 && IR_R2 == 1) {
+    //     motor(90, 0, 0, 0);
+    //     delay(300);
+    // } else if (IR_L2 == 1 && IR_R2 == 0) {
+    //     motor(0, 0, 90, 0);
+    //     delay(300);
+    } else if (IR_L == 0 && IR_L2 == 1 && IR_R2 == 1 && IR_R == 1) {
+        back(100);
+        delay(600);
+        right(100);
+        delay(2000);
+    } else if (IR_L == 1 && IR_L2 == 1 && IR_R2 == 1 && IR_R == 0) {
+        back(100);
+        delay(600);
+        left(100);
+        delay(2000);
     } else {
         motor(0, 0, 0, 0);
         delay(2000);
-        stop();
         back(90);
     }
 }
@@ -70,8 +99,8 @@ void loop() {
         right(150); // 或 left(150)，根據需要轉向
         delay(500);
 
-        run(255);
+        run(100);
     } else {
-        line_following(IR_L, IR_R);
+        line_following(IR_L2, IR_R2, IR_L, IR_R);
     }
 }
