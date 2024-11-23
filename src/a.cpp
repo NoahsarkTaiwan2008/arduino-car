@@ -10,19 +10,33 @@ NewPing sonar(trigPin, echoPin, MAX_DISTANCE);
 
 void line_following(int ir_center, int ir_left, int ir_right) {
 
-    if (ir_center == 0 && ir_left == 1 && ir_right == 1) {
-        // run(110);
+    if (ir_left == 1 && ir_center == 0 && ir_right == 1) { // stop or back
         stop();
+        delay(200);
+        back(120);
+    } else if (ir_left == 1 && ir_center == 1 && ir_right == 1) { // run
+        back(0);
+        run(120);
         delay(500);
-        right(220);
-    } else if (ir_center == 1 && ir_left == 1 && ir_right == 1) {
-        run(220);
-    } else if (ir_center == 0 && ir_left == 1 && ir_right == 0) {
-        right(220);
-    } else if (ir_center == 0 && ir_left == 0 && ir_right == 1) {
-        left(220);
+    } else if (ir_left == 1 && ir_center == 0 && ir_right == 0) { // right
+        back(0);
+        motor(100, 0, 0, 0);
+        delay(500);
+    } else if (ir_left == 0 && ir_center == 0 && ir_right == 1)  { //left
+        back(0);
+        motor(0, 0, 100, 0);
+        delay(500);
+    } else if (ir_left == 0 && ir_center == 1 && ir_right == 1) { //big right
+        back(0);
+        right(100);
+        delay(500);
+    } else if (ir_left == 1 && ir_center == 1 && ir_right == 0) { // big left
+        back(0);
+        left(100);
+        delay(500);
     } else {
-        stop();
+        back(120);
+        delay(500);
     }
 }
 
@@ -49,18 +63,9 @@ void loop() {
     int ir_center = digitalRead(A3);
     // int right2 = digitalRead(A5);
 
-    Serial.print("Distance: ");
-    Serial.print(distance);
-    Serial.println("cm");
-    Serial.print("left: ");
-    Serial.print(ir_left);
-    Serial.print(" right: ");
-    Serial.println(ir_right);
-    Serial.print(" center: ");
-    Serial.print(ir_center);
-    // Serial.print(" right2: ");
-    // Serial.println(right2);
-    delay(500);
+    // back(0);
+    // run(120);
+    // delay(2000);
 
     // if (distance > 0 && distance <= 15) {
     //     // 停止並直接繞過障礙物

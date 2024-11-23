@@ -1,0 +1,12 @@
+W W W(111)
+W B W(101)run
+W W B(110)
+B W W(011)
+B W B(010)
+
+stop\back 1 0 1
+run 1 1 1
+right 1 0 0
+left 0 0 1
+big right 0 1 1
+big left 1 1 0
